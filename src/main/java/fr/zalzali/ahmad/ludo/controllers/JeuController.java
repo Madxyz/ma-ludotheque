@@ -36,7 +36,7 @@ public class JeuController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un Jeu.")
-    public ResponseEntity<Jeu> getCandidatById(@PathVariable("id") final Long jeuID) {
+    public ResponseEntity<Jeu> getJeuById(@PathVariable("id") final Long jeuID) {
 
         final Jeu Jeu = iJeuService.findById(jeuID);
         return new ResponseEntity<>(Jeu, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class JeuController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un Jeu.")
-    public ResponseEntity<Jeu> updateCandidat(@RequestBody final Jeu jeu) {
+    public ResponseEntity<Jeu> updateJeu(@RequestBody final Jeu jeu) {
 
         final Jeu saved = iJeuService.update(jeu);
         return new ResponseEntity<>(saved, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class JeuController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un Jeu.")
-    public void deleteCandidat(@PathVariable("id") final Long jeuID) {
+    public void deleteJeu(@PathVariable("id") final Long jeuID) {
 
         iJeuService.deleteById(jeuID);
     }

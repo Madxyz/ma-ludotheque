@@ -36,7 +36,7 @@ public class AuteurController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un Auteur.")
-    public ResponseEntity<Auteur> getCandidatById(@PathVariable("id") final Long auteurID) {
+    public ResponseEntity<Auteur> getAuteurById(@PathVariable("id") final Long auteurID) {
 
         final Auteur auteur = iAuteurService.findById(auteurID);
         return new ResponseEntity<>(auteur, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class AuteurController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un Auteur.")
-    public ResponseEntity<Auteur> updateCandidat(@RequestBody final Auteur auteur) {
+    public ResponseEntity<Auteur> updateAuteur(@RequestBody final Auteur auteur) {
 
         final Auteur saved = iAuteurService.update(auteur);
         return new ResponseEntity<>(saved, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class AuteurController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un Auteur.")
-    public void deleteCandidat(@PathVariable("id") final Long auteurID) {
+    public void deleteAuteur(@PathVariable("id") final Long auteurID) {
 
         iAuteurService.deleteById(auteurID);
     }

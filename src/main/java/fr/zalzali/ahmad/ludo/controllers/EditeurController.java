@@ -28,7 +28,7 @@ public class EditeurController {
 
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer un Editeur.")
-    public ResponseEntity<Editeur> createAuteur(@RequestBody final Editeur editeur) {
+    public ResponseEntity<Editeur> createEditeur(@RequestBody final Editeur editeur) {
 
         final Editeur saved = iEditeurService.save(editeur);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
@@ -36,7 +36,7 @@ public class EditeurController {
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un Editeur.")
-    public ResponseEntity<Editeur> getCandidatById(@PathVariable("id") final Long editeurID) {
+    public ResponseEntity<Editeur> getEditeurById(@PathVariable("id") final Long editeurID) {
 
         final Editeur editeur = iEditeurService.findById(editeurID);
         return new ResponseEntity<>(editeur, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class EditeurController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un Editeur.")
-    public ResponseEntity<Editeur> updateCandidat(@RequestBody final Editeur editeur) {
+    public ResponseEntity<Editeur> updateEditeur(@RequestBody final Editeur editeur) {
 
         final Editeur saved = iEditeurService.update(editeur);
         return new ResponseEntity<>(saved, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class EditeurController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un Editeur.")
-    public void deleteCandidat(@PathVariable("id") final Long editeurID) {
+    public void deleteEditeur(@PathVariable("id") final Long editeurID) {
 
         iEditeurService.deleteById(editeurID);
     }

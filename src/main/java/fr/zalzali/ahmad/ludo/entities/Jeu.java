@@ -16,6 +16,7 @@ import java.util.Set;
 public class Jeu {
 
     @Id
+    @Column(name = "id_jeu")
     @GeneratedValue
     private Long id;
 

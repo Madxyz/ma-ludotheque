@@ -28,15 +28,15 @@ public class IllustrateurController {
 
     @PostMapping
     @Operation(summary = "Méthode permettant d'enregistrer un Illustrateur.")
-    public ResponseEntity<Illustrateur> createAuteur(@RequestBody final Illustrateur auteur) {
+    public ResponseEntity<Illustrateur> createIllustrateur(@RequestBody final Illustrateur illustrateur) {
 
-        final Illustrateur saved = iIllustrateurservice.save(auteur);
+        final Illustrateur saved = iIllustrateurservice.save(illustrateur);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Méthode permettant de récupérer un Illustrateur.")
-    public ResponseEntity<Illustrateur> getCandidatById(@PathVariable("id") final Long illustrateurID) {
+    public ResponseEntity<Illustrateur> getIllustrateurById(@PathVariable("id") final Long illustrateurID) {
 
         final Illustrateur illustrateur = iIllustrateurservice.findById(illustrateurID);
         return new ResponseEntity<>(illustrateur, HttpStatus.OK);
@@ -44,7 +44,7 @@ public class IllustrateurController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Méthode permettant de mettre à jour un Illustrateur.")
-    public ResponseEntity<Illustrateur> updateCandidat(@RequestBody final Illustrateur illustrateur) {
+    public ResponseEntity<Illustrateur> updateIllustrateur(@RequestBody final Illustrateur illustrateur) {
 
         final Illustrateur saved = iIllustrateurservice.update(illustrateur);
         return new ResponseEntity<>(saved, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class IllustrateurController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Méthode permettant de supprimer un Illustrateur.")
-    public void deleteCandidat(@PathVariable("id") final Long illustrateurID) {
+    public void deleteIllustrateur(@PathVariable("id") final Long illustrateurID) {
 
         iIllustrateurservice.deleteById(illustrateurID);
     }
